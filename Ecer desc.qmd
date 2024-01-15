@@ -1,0 +1,105 @@
+---
+title: "ECER descriptive analyses"
+author: "Alexander Christ"
+format: html
+editor: visual
+---
+
+## Loading Packages
+
+```{r}
+library(dplyr)
+library(tm)
+library(tidyr)
+library(SnowballC)
+library(tidytext)
+library(ldatuning)
+library(topicmodels)
+library(ggplot2)
+library(Rtsne)
+```
+
+## 
+
+## WD, Loading and Data Selection
+
+```{r}
+setwd("C:/Users/alexc/Desktop/Ecer desc analyses")
+
+```
+
+```{r}
+data_tidy <- read.csv2("ecer_tidy.csv", header=T)
+colnames(data_tidy)
+
+data_raw <- read.csv("data.csv", header=T)
+colnames(data_raw)
+
+nw_subs <- read.csv2("networks.csv", header=T)
+nw_inc <- nw_subs %>% filter(Inc == "1") %>% select(netw, netw_sub)
+```
+
+```{r}
+	stop = read.table(file="EDF_stop_words_extracted.dat", header = TRUE, fileEncoding="UTF-8")
+
+```
+
+Selecting variables;
+
+```{r}
+network_vec <- data_raw %>% rename(netw= contribution_network) %>% left_join(nw_inc) %>% select(X, netw_sub, year) %>% rename(ident = X) %>% filter(!is.na(netw_sub))
+
+nrow(network_vec)
+```
+
+## Network analysis
+
+```{r}
+nw_count <- network_vec %>% group_by(netw_sub) %>% count() %>% arrange(desc(n))
+nw_count
+nrow(nw_count)
+
+
+nw_count_yearly <- network_vec %>% group_by(netw_sub, year) %>% count() 
+nw_count_yearly
+
+nw_count_yearly_spread <- nw_count_yearly %>% spread(year, n)
+nw_count_yearly_spread
+
+nw_count_yearly %>% ggplot(x = year, y=n, aes(x=year, y=n)) + 
+                  geom_point() + 
+                  facet_wrap(~ netw_sub) 
+
+
+```
+
+## Descriptive Text Analyses
+
+Building Text Vector
+
+```{r}
+text_vec <- data_tidy %>% select(ident, text_tidy) %>% rename(text = text_tidy)
+```
+
+Word Count
+
+```{r}
+text_un <- text_vec %>% unnest_tokens(word, text) %>% count(word) %>% arrange(desc(n))
+text_un %>% top_n(250)
+```
+
+Bigram-Count
+
+```{r}
+bigrams <- text_vec %>% unnest_tokens(bigram, text, token="ngrams", n = 2)
+bigrams_count <- bigrams %>% count(bigram) %>% arrange(desc(n))
+bigrams_count %>% top_n(250)
+```
+
+Trigram-Count
+
+```{r}
+trigrams <- text_vec %>% unnest_tokens(trigram, text, token="ngrams", n = 3)
+trigrams_count <- trigrams %>% count(trigram) %>% arrange(desc(n))
+trigrams_count %>% top_n(250)
+```

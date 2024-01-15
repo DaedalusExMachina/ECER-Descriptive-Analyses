@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Alexander Christ">
+
+<title>ECER descriptive analyses</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Ecer desc_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Ecer desc_files/libs/quarto-html/quarto.js"></script>
+<script src="Ecer desc_files/libs/quarto-html/popper.min.js"></script>
+<script src="Ecer desc_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Ecer desc_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Ecer desc_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Ecer desc_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Ecer desc_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Ecer desc_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Ecer desc_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ECER descriptive analyses</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Alexander Christ </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="loading-packages" class="level2">
+<h2 class="anchored" data-anchor-id="loading-packages">Loading Packages</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'dplyr' was built under R version 4.2.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tm' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: NLP</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyr' was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SnowballC)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidytext' was built under R version 4.2.3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ldatuning)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ldatuning' was built under R version 4.2.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(topicmodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'topicmodels' was built under R version 4.2.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.2.2</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'ggplot2'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:NLP':
+
+    annotate</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rtsne)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'Rtsne' was built under R version 4.2.2</code></pre>
+</div>
+</div>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="wd-loading-and-data-selection" class="level2">
+<h2 class="anchored" data-anchor-id="wd-loading-and-data-selection">WD, Loading and Data Selection</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/alexc/Desktop/Ecer desc analyses"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>data_tidy <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"ecer_tidy.csv"</span>, <span class="at">header=</span>T)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data_tidy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ident"     "text_tidy" "text"      "year"     </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data_raw <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data.csv"</span>, <span class="at">header=</span>T)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(data_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "X"                                "Column"                          
+ [3] "year"                             "subtitle"                        
+ [5] "location"                         "contribution_id"                 
+ [7] "contribution_title"               "contribution_method"             
+ [9] "contribution_expected_outcome"    "contribution_references"         
+[11] "contribution_detail_information"  "contribution_symposium_extends"  
+[13] "contribution_external_references" "contribution_format"             
+[15] "contribution_network"             "session_title"                   
+[17] "session_short_title"              "session_description"             
+[19] "session_date"                     "session_room"                    
+[21] "relevance_jr"                     "nw_all"                          </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>nw_subs <span class="ot">&lt;-</span> <span class="fu">read.csv2</span>(<span class="st">"networks.csv"</span>, <span class="at">header=</span>T)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>nw_inc <span class="ot">&lt;-</span> nw_subs <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Inc <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(netw, netw_sub)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>    stop <span class="ot">=</span> <span class="fu">read.table</span>(<span class="at">file=</span><span class="st">"EDF_stop_words_extracted.dat"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>, <span class="at">fileEncoding=</span><span class="st">"UTF-8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Selecting variables;</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>network_vec <span class="ot">&lt;-</span> data_raw <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">netw=</span> contribution_network) <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(nw_inc) <span class="sc">%&gt;%</span> <span class="fu">select</span>(X, netw_sub, year) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">ident =</span> X) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(netw_sub))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(netw)`</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(network_vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30072</code></pre>
+</div>
+</div>
+</section>
+<section id="network-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="network-analysis">Network analysis</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>nw_count <span class="ot">&lt;-</span> network_vec <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(netw_sub) <span class="sc">%&gt;%</span> <span class="fu">count</span>() <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>nw_count</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 36 × 2
+# Groups:   netw_sub [36]
+   netw_sub                     n
+   &lt;chr&gt;                    &lt;int&gt;
+ 1 Teacher Education         2473
+ 2 Higher Education          2355
+ 3 Politics of Education     2265
+ 4 Vocational Education      1865
+ 5 Inclusion                 1860
+ 6 Professional Development  1626
+ 7 Intercultural Education   1320
+ 8 ICT                       1252
+ 9 Didactics                 1248
+10 Assessment                1214
+# ℹ 26 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(nw_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 36</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>nw_count_yearly <span class="ot">&lt;-</span> network_vec <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(netw_sub, year) <span class="sc">%&gt;%</span> <span class="fu">count</span>() </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>nw_count_yearly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 552 × 3
+# Groups:   netw_sub, year [552]
+   netw_sub        year     n
+   &lt;chr&gt;          &lt;int&gt; &lt;int&gt;
+ 1 Arts Education  2013    52
+ 2 Arts Education  2014    58
+ 3 Arts Education  2015    38
+ 4 Arts Education  2016    43
+ 5 Arts Education  2017    47
+ 6 Arts Education  2018    31
+ 7 Arts Education  2019    30
+ 8 Assessment      2008    46
+ 9 Assessment      2009    97
+10 Assessment      2010    93
+# ℹ 542 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>nw_count_yearly_spread <span class="ot">&lt;-</span> nw_count_yearly <span class="sc">%&gt;%</span> <span class="fu">spread</span>(year, n)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>nw_count_yearly_spread</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 36 × 23
+# Groups:   netw_sub [36]
+   netw_sub       `1998` `1999` `2000` `2001` `2002` `2003` `2004` `2005` `2006`
+   &lt;chr&gt;           &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;  &lt;int&gt;
+ 1 Arts Education     NA     NA     NA     NA     NA     NA     NA     NA     NA
+ 2 Assessment         NA     NA     NA     NA     NA     NA     NA     NA     NA
+ 3 Childrens Rig…     NA     NA     NA     NA     NA     NA      7      6     14
+ 4 Communities        10     20     20     15     18      8     11     14     19
+ 5 Comparative E…     NA      3     25     25     18     20     30     11     15
+ 6 Curricula          42     18     73     53     39     23     48     30     22
+ 7 Didactics          NA     NA     NA     NA     NA     NA     NA     NA     31
+ 8 Economics          11      3      9     10     10      7     15      9     12
+ 9 Ethnography        NA     NA     17     24     18     30     34     30     28
+10 Families and …     NA     NA     NA     NA     NA     NA     NA     NA     NA
+# ℹ 26 more rows
+# ℹ 13 more variables: `2007` &lt;int&gt;, `2008` &lt;int&gt;, `2009` &lt;int&gt;, `2010` &lt;int&gt;,
+#   `2011` &lt;int&gt;, `2012` &lt;int&gt;, `2013` &lt;int&gt;, `2014` &lt;int&gt;, `2015` &lt;int&gt;,
+#   `2016` &lt;int&gt;, `2017` &lt;int&gt;, `2018` &lt;int&gt;, `2019` &lt;int&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>nw_count_yearly <span class="sc">%&gt;%</span> <span class="fu">ggplot</span>(<span class="at">x =</span> year, <span class="at">y=</span>n, <span class="fu">aes</span>(<span class="at">x=</span>year, <span class="at">y=</span>n)) <span class="sc">+</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">facet_wrap</span>(<span class="sc">~</span> netw_sub) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="Ecer-desc_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="descriptive-text-analyses" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-text-analyses">Descriptive Text Analyses</h2>
+<p>Building Text Vector</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>text_vec <span class="ot">&lt;-</span> data_tidy <span class="sc">%&gt;%</span> <span class="fu">select</span>(ident, text_tidy) <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">text =</span> text_tidy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Word Count</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>text_un <span class="ot">&lt;-</span> text_vec <span class="sc">%&gt;%</span> <span class="fu">unnest_tokens</span>(word, text) <span class="sc">%&gt;%</span> <span class="fu">count</span>(word) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>text_un <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            word      n
+1           educ 186517
+2         school 128860
+3        teacher 121079
+4        student  98867
+5          learn  87039
+6        develop  67783
+7        practic  47786
+8         social  46703
+9          teach  44331
+10      knowledg  37175
+11       process  36981
+12        polici  31461
+13    profession  30524
+14      children  29770
+15         relat  29603
+16       context  27668
+17       univers  27403
+18        system  27351
+19        cultur  26912
+20      question  26759
+21        experi  26453
+22       project  25386
+23         level  24922
+24        commun  24777
+25          need  24148
+26       present  24113
+27    understand  23865
+28        strong  22384
+29        import  22117
+30      particip  22112
+31         activ  21912
+32           aim  21850
+33       concept  21294
+34       support  21266
+35       countri  21157
+36        nation  20402
+37          year  20392
+38         group  20274
+39        higher  19631
+40         train  19016
+41      individu  18725
+42       languag  18564
+43        compet  18562
+44         skill  18438
+45         model  18363
+46            al  18292
+47        provid  18257
+48      european  18089
+49          make  17877
+50      institut  17484
+51    curriculum  17274
+52        academ  17214
+53      perspect  17109
+54        inclus  17041
+55        intern  16930
+56       analysi  16777
+57        theori  16693
+58     classroom  16686
+59         gener  16475
+60         peopl  16445
+61        includ  16239
+62        inform  16115
+63       subject  15726
+64        achiev  15354
+65       qualiti  15344
+66        specif  15091
+67         evalu  14858
+68          issu  14784
+69        explor  14725
+70       reflect  14576
+71          part  14572
+72          mean  14570
+73         pupil  14534
+74       problem  14486
+75          form  14472
+76          focu  14374
+77     framework  14294
+78        improv  14078
+79      challeng  13999
+80         field  13369
+81       theoret  13314
+82        involv  13269
+83          valu  13233
+84  relationship  13203
+85        parent  13194
+86         order  13162
+87      influenc  13138
+88       environ  13096
+89         posit  12983
+90        factor  12976
+91        examin  12972
+92       perform  12965
+93        consid  12921
+94        person  12861
+95     implement  12829
+96       program  12814
+97      structur  12600
+98         state  12577
+99     contribut  12464
+100         term  12383
+101        focus  12289
+102       follow  12287
+103      societi  12262
+104     strategi  12235
+105         take  12161
+106         life  12089
+107            p  12051
+108      increas  12027
+109       critic  11998
+110       design  11974
+111        becom  11920
+112       action  11860
+113   leadership  11830
+114    construct  11807
+115        young  11770
+116        polit  11731
+117     investig  11696
+118       impact  11415
+119    secondari  11354
+120         view  11315
+121       method  11305
+122      respons  11300
+123       toward  11284
+124        ident  11260
+125      possibl  11256
+126     interact  11241
+127      concern  11235
+128      pedagog  11224
+129     identifi  11213
+130       situat  11062
+131     interest  11050
+132       govern  10975
+133        world  10928
+134       promot  10875
+135       integr  10743
+136       regard  10561
+137       object  10541
+138     programm  10540
+139        manag  10428
+140        initi  10421
+141      primari  10337
+142       public  10311
+143        cours  10306
+144     mathemat  10285
+145        place  10243
+146     collabor  10230
+147         area  10136
+148       compar  10124
+149        class  10111
+150        engag  10087
+151      current  10056
+152        point  10011
+153         main   9961
+154       famili   9951
+155     discours   9879
+156     opportun   9865
+157   particular   9845
+158   technologi   9733
+159       econom   9691
+160       servic   9675
+161       outcom   9599
+162       global   9589
+163       reform   9571
+164      success   9532
+165       analys   9509
+166       aspect   9477
+167       divers   9464
+168        organ   9394
+169        think   9323
+170      special   9310
+171      attitud   9222
+172     therefor   9195
+173      content   9173
+174        creat   9164
+175          kei   9099
+176       purpos   9074
+177       requir   9029
+178       expect   9023
+179       accord   8967
+180         idea   8888
+181        local   8818
+182       recent   8725
+183      describ   8669
+184      learner   8668
+185       exampl   8636
+186         goal   8610
+187       measur   8579
+188      network   8557
+189      address   8507
+190        motiv   8433
+191       number   8433
+192       gender   8415
+193        human   8274
+194         read   8268
+195     literaci   8245
+196        futur   8235
+197        innov   8190
+198        space   8153
+199         help   8120
+200         evid   8016
+201        refer   8014
+202      complex   7973
+203     signific   7966
+204       tradit   7943
+205        natur   7940
+206   background   7893
+207      account   7882
+208        vocat   7871
+209    literatur   7786
+210      resourc   7697
+211          thu   7690
+212         tool   7638
+213         sinc   7627
+214        defin   7625
+215        europ   7606
+216    interview   7561
+217      collect   7468
+218         draw   7413
+219         live   7399
+220      percept   7386
+221       affect   7372
+222     instruct   7352
+223        earli   7316
+224      sustain   7274
+225        right   7273
+226        indic   7222
+227        offer   7208
+228       condit   7192
+229       orient   7162
+230         task   7150
+231       across   7084
+232        emerg   7038
+233       variou   7036
+234         abil   7027
+235         type   6974
+236       author   6964
+237        decis   6919
+238      potenti   6914
+239       observ   6911
+240      conduct   6895
+241      continu   6893
+242        power   6889
+243    transform   6868
+244        exist   6843
+245      transit   6835
+246    establish   6792
+247         argu   6785
+248      organis   6782
+249         lead   6771
+250        build   6749</code></pre>
+</div>
+</div>
+<p>Bigram-Count</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>bigrams <span class="ot">&lt;-</span> text_vec <span class="sc">%&gt;%</span> <span class="fu">unnest_tokens</span>(bigram, text, <span class="at">token=</span><span class="st">"ngrams"</span>, <span class="at">n =</span> <span class="dv">2</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>bigrams_count <span class="ot">&lt;-</span> bigrams <span class="sc">%&gt;%</span> <span class="fu">count</span>(bigram) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>bigrams_count <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 bigram     n
+1           higher educ 15649
+2          teacher educ 15282
+3           educ system  8932
+4           young peopl  7296
+5           teach learn  7012
+6           educ polici  6531
+7    profession develop  6262
+8       student teacher  6164
+9      secondari school  5884
+10       primari school  4852
+11        strong strong  4821
+12        student learn  4251
+13      teacher student  4217
+14        learn process  4114
+15    theoret framework  3952
+16          inclus educ  3784
+17        learn environ  3730
+18        educ institut  3654
+19           pre servic  3503
+20        teacher train  3327
+21       school teacher  3291
+22         special educ  3247
+23   teacher profession  3220
+24     european countri  3111
+25       servic teacher  3021
+26           educ train  2978
+27           vocat educ  2826
+28      follow question  2775
+29       attitud toward  2710
+30        school system  2706
+31        teach practic  2637
+32         educ practic  2566
+33           take place  2523
+34        school leader  2506
+35           decis make  2499
+36       secondari educ  2406
+37     profession learn  2252
+38      upper secondari  2246
+39       school student  2166
+40        social justic  2133
+41         learn outcom  2089
+42       lifelong learn  2080
+43      earli childhood  2039
+44          learn teach  2028
+45         educ teacher  2026
+46            educ need  2025
+47         educ program  1947
+48          educ reform  1943
+49          school educ  1929
+50       student achiev  1911
+51       teacher school  1895
+52         problem solv  1894
+53        labour market  1878
+54       polici practic  1804
+55         socio econom  1789
+56           point view  1783
+57       knowledg skill  1760
+58         educ context  1753
+59      sustain develop  1735
+60             year old  1725
+61     profession ident  1721
+62                p ltr  1699
+63         take account  1676
+64    school leadership  1666
+65       school develop  1662
+66         educ student  1661
+67      develop teacher  1638
+68      foreign languag  1635
+69        initi teacher  1633
+70           last decad  1609
+71              p align  1592
+72         polici maker  1589
+73         learn experi  1574
+74           adult educ  1567
+75            last year  1551
+76         educ process  1546
+77        school improv  1519
+78         qualiti educ  1517
+79         learn commun  1514
+80        school school  1514
+81         school level  1471
+82          recent year  1461
+83        social cultur  1442
+84       theori practic  1439
+85          educ school  1437
+86         special need  1419
+87       european union  1418
+88       school princip  1395
+89        teacher learn  1383
+90        school commun  1352
+91            educ educ  1337
+92     european commiss  1335
+93    primari secondari  1331
+94      answer question  1326
+95         educ develop  1318
+96      teacher develop  1302
+97        academ achiev  1294
+98          start point  1293
+99        ministri educ  1284
+100       teach profess  1280
+101          field educ  1271
+102     teacher teacher  1261
+103     univers student  1252
+104          larg scale  1244
+105      school context  1237
+106         human right  1208
+107       educ programm  1202
+108           long term  1201
+109   elementari school  1192
+110        critic think  1190
+111       teacher teach  1164
+112        develop educ  1153
+113       public school  1152
+114      student experi  1148
+115     develop student  1141
+116         nation educ  1140
+117     practic teacher  1132
+118         learn learn  1118
+119         learn activ  1117
+120    citizenship educ  1110
+121       languag learn  1103
+122   classroom practic  1089
+123       main question  1088
+124   better understand  1084
+125         educ social  1077
+126       european educ  1074
+127      student school  1071
+128    content knowledg  1069
+129       cultur divers  1066
+130      develop school  1065
+131      intern student  1055
+132       learn develop  1050
+133      commun practic  1049
+134       school cultur  1048
+135        socio cultur  1045
+136          pre school  1044
+137     educ leadership  1040
+138          unit state  1035
+139  conceptu framework  1030
+140      childhood educ  1027
+141          level educ  1027
+142        social capit  1023
+143     pedagog practic  1020
+144         formal educ  1019
+145        across europ  1016
+146         physic educ  1012
+147              th sup  1004
+148              sup th  1001
+149      learn strategi   999
+150      social network   989
+151       begin teacher   980
+152   nation curriculum   975
+153 profession knowledg   973
+154     factor influenc   969
+155       qualiti assur   969
+156        primari educ   966
+157         school year   966
+158       parent involv   962
+159      practic school   960
+160        teach method   958
+161  curriculum develop   954
+162        inform learn   951
+163          aim explor   948
+164     student perform   945
+165      children right   938
+166       inclus school   932
+167     lower secondari   932
+168     teacher percept   931
+169     educ profession   920
+170          align left   917
+171      children young   912
+172       social inclus   909
+173         project aim   905
+174       group student   903
+175      school subject   903
+176     student develop   900
+177       student engag   897
+178        learn school   896
+179         health educ   889
+180      subject matter   888
+181    student particip   885
+182               br br   883
+183     support teacher   883
+184     univers teacher   878
+185     bologna process   872
+186        educ sustain   870
+187     teacher practic   868
+188         vocat train   864
+189     school children   863
+190         polici make   860
+191    intercultur educ   858
+192       social econom   858
+193     social interact   854
+194    teacher knowledg   851
+195          non formal   849
+196         social educ   849
+197      compet develop   839
+198          educ level   835
+199       learn student   835
+200      young children   835
+201        school choic   831
+202      parent teacher   829
+203       formal inform   826
+204  profession practic   823
+205             co oper   822
+206         educ experi   822
+207            art educ   820
+208        educ univers   820
+209           wide rang   819
+210      teacher belief   816
+211     question strong   813
+212      improv qualiti   811
+213           make sens   810
+214        aim investig   809
+215     student percept   809
+216      teacher experi   808
+217       teacher pupil   807
+218     english languag   806
+219   compulsori school   805
+220          focu group   804
+221    digit technologi   802
+222   school curriculum   802
+223       qualiti teach   798
+224       educ children   793
+225      student academ   792
+226     polici document   791
+227        social class   789
+228         sup centuri   788
+229          st centuri   786
+230       nation intern   782
+231     support student   780
+232  develop profession   778
+233      teacher compet   771
+234      school environ   770
+235      social context   768
+236      improv student   765
+237      learn opportun   761
+238        student educ   756
+239     develop countri   754
+240        around world   753
+241       everydai life   753
+242       nation polici   742
+243   preservic teacher   742
+244      school practic   741
+245    mathemat teacher   740
+246     teacher attitud   740
+247            educ aim   739
+248     reflect practic   739
+249       train program   739
+250      cultur context   738</code></pre>
+</div>
+</div>
+<p>Trigram-Count</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>trigrams <span class="ot">&lt;-</span> text_vec <span class="sc">%&gt;%</span> <span class="fu">unnest_tokens</span>(trigram, text, <span class="at">token=</span><span class="st">"ngrams"</span>, <span class="at">n =</span> <span class="dv">3</span>)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>trigrams_count <span class="ot">&lt;-</span> trigrams <span class="sc">%&gt;%</span> <span class="fu">count</span>(trigram) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>trigrams_count <span class="sc">%&gt;%</span> <span class="fu">top_n</span>(<span class="dv">250</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Selecting by n</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                         trigram    n
+1             pre servic teacher 2494
+2           higher educ institut 1638
+3           strong strong strong 1315
+4              special educ need 1307
+5             initi teacher educ 1219
+6         upper secondari school 1161
+7               vocat educ train 1161
+8     teacher profession develop 1064
+9                     sup th sup 1000
+10          earli childhood educ  982
+11          teacher educ program  952
+12                  p align left  917
+13          children young peopl  855
+14           teach learn process  793
+15      primari secondari school  644
+16          educ sustain develop  636
+17    profession develop teacher  621
+18    continu profession develop  619
+19      inform commun technologi  619
+20                    sup st sup  614
+21        primari school teacher  607
+22      theoret framework strong  596
+23            higher educ system  581
+24          european higher educ  573
+25       semi structur interview  567
+26      strong theoret framework  561
+27          upper secondari educ  555
+28      pedagog content knowledg  540
+29         teacher educ programm  540
+30        answer follow question  534
+31        strong question strong  519
+32        lower secondari school  508
+33                st sup centuri  491
+34       profession learn commun  447
+35            decis make process  443
+36      secondari school teacher  399
+37           educ polici practic  388
+38             earli school leav  387
+39            socio econom statu  383
+40          teacher teacher educ  366
+41       address follow question  363
+42        teacher attitud toward  359
+43           servic teacher educ  357
+44          strong object strong  352
+45      secondari school student  344
+46             educ teacher educ  326
+47              higher educ area  326
+48                p align center  325
+49         newli qualifi teacher  323
+50          student special educ  322
+51                  th sup grade  312
+52           formal inform learn  311
+53       socio econom background  308
+54            access higher educ  301
+55            higher educ polici  298
+56             special need educ  298
+57          teacher educ student  298
+58        primari secondari educ  295
+59           higher educ student  294
+60            nation educ system  294
+61                th sup centuri  292
+62           convent right child  291
+63          posit attitud toward  291
+64      teacher profession learn  287
+65          teacher educ teacher  284
+66           initi teacher train  283
+67              learn take place  282
+68        student attitud toward  282
+69             learn higher educ  274
+70          develop teacher educ  267
+71          student learn outcom  265
+72         teacher school leader  261
+73         attitud toward inclus  259
+74       teacher educ profession  255
+75               p lang xml:lang  253
+76           student higher educ  253
+77       strong introduct strong  249
+78       earli childhood teacher  245
+79               life long learn  245
+80              year old student  244
+81           school teacher educ  239
+82             non formal inform  237
+83         teacher train program  237
+84          special educ teacher  236
+85            teach teacher educ  236
+86          institut higher educ  235
+87           teach learn practic  235
+88                     ltr p ltr  232
+89         children special educ  230
+90         children special need  230
+91              educ higher educ  229
+92          improv student learn  227
+93          practic teacher educ  227
+94            follow question ol  226
+95        primari school student  225
+96               p align justifi  224
+97         teacher educ institut  222
+98                gb xml:lang gb  220
+99              lang gb xml:lang  220
+100           nation educ polici  213
+101            year old children  209
+102      teacher student teacher  208
+103     teacher profession ident  207
+104              non formal educ  205
+105           toward inclus educ  204
+106         servic teacher train  203
+107                    p lang gb  201
+108            educ polici maker  198
+109          qualiti teach learn  197
+110            formal non formal  196
+111       knowledg skill attitud  196
+112   profession develop program  196
+113         earli career teacher  193
+114           higher educ sector  193
+115           improv teach learn  192
+116                 ul type disc  192
+117            educ train system  191
+118      programm intern student  191
+119           school ag children  190
+120         univers teacher educ  190
+121      primari school children  189
+122          align center strong  188
+123          improv qualiti educ  184
+124         structur equat model  184
+125 teacher student relationship  184
+126           problem solv skill  182
+127           process take place  182
+128        school leader teacher  181
+129  profession develop programm  179
+130         european educ polici  178
+131      internation higher educ  178
+132            nation agenc educ  178
+133        student learn process  178
+134              pre school educ  177
+135                ol start type  176
+136          develop higher educ  175
+137         student special need  175
+138          teacher educ polici  175
+139          right person disabl  174
+140          teach learn environ  172
+141          children right educ  171
+142      english foreign languag  170
+143            level educ system  170
+144             non formal learn  170
+145         lower secondari educ  169
+146           follow question ul  168
+147         teacher educ develop  168
+148         health promot school  167
+149        student academ achiev  167
+150      primari lower secondari  165
+151             th grade student  164
+152       student teacher school  162
+153         convent right person  160
+154             educ polici make  160
+155          process teach learn  160
+156           teacher educ cours  159
+157          unit nation convent  159
+158          higher educ context  158
+159         focu group interview  155
+160      global citizenship educ  155
+161 nazarbayev intellectu school  155
+162                   sup sup th  155
+163        foreign languag learn  154
+164                     li ltr p  153
+165           pre school teacher  153
+166    profession develop school  153
+167            teach higher educ  153
+168      critic discours analysi  152
+169    elementari school teacher  152
+170         european educ system  151
+171         nation convent right  151
+172            pre servic servic  151
+173      subject matter knowledg  150
+174           social justic educ  149
+175           teach learn school  149
+176         teacher educ practic  149
+177       teacher train programm  149
+178        virtual learn environ  149
+179         qualiti teacher educ  148
+180      educ profession develop  147
+181         interview focu group  147
+182          part larger project  147
+183             young peopl educ  147
+184           pupil special educ  146
+185        student teacher learn  146
+186  teacher profession knowledg  146
+187     teacher student interact  146
+188               educ train vet  145
+189      follow question address  145
+190                educ need sen  144
+191         particip higher educ  144
+192          physic educ teacher  144
+193        implement inclus educ  143
+194      technologi enhanc learn  143
+195             human right educ  142
+196          qualiti higher educ  142
+197            strong aim strong  141
+198        attitud toward school  140
+199           non tradit student  140
+200         student teacher educ  140
+201         teacher educ univers  139
+202            intern larg scale  138
+203     profession learn develop  138
+204          year primari school  137
+205            local educ author  135
+206        upper secondari level  134
+207            field higher educ  133
+208          teacher educ school  133
+209     develop profession ident  132
+210    becom increasingli import  131
+211             st centuri skill  131
+212       comput inform literaci  129
+213      student teacher teacher  129
+214          transit higher educ  129
+215           school higher educ  128
+216        swedish school system  128
+217          earli school leaver  127
+218         educ student teacher  127
+219     environment sustain educ  127
+220          higher educ teacher  127
+221            open end question  127
+222        commun technologi ict  125
+223         follow question guid  125
+224              ict teach learn  125
+225     strong background strong  125
+226         sustain develop goal  125
+227           system higher educ  125
+228           teacher pre servic  125
+229         middl school student  124
+230                p align right  124
+231             take start point  124
+232                  th th grade  124
+233           confer prepar next  123
+234           ecer review confer  123
+235             meet ecer review  123
+236         ministri nation educ  123
+237             prepar next year  123
+238           pupil special need  123
+239         review confer prepar  123
+240               strong p align  123
+241            eera network hold  122
+242          teacher educ reform  122
+243           young peopl experi  122
+244          intern student pisa  121
+245         post compulsori educ  121
+246                   th sup sup  121
+247         enhanc student learn  120
+248  internationalis higher educ  120
+249           open univers press  120
+250          practic higher educ  120</code></pre>
+</div>
+</div>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
